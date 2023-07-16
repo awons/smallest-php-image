@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  php-fpm:
+    image: php-image
+    volumes:
+      - ./src:/var/www/html
+  nginx:
+    image: nginx
+    ports:
+      - '8080:80'
+    volumes:
+      - ./docker-fs/nginx/default.conf:/etc/nginx/conf.d/default.conf
